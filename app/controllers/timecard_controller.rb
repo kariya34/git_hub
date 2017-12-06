@@ -71,7 +71,7 @@ class TimecardController < ApplicationController
   end
   
   private def systemDate
-    @systemDate = DateTime.now + 2
+    @systemDate = DateTime.now
     return @systemDate
   end
   
