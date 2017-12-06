@@ -1,0 +1,2 @@
+class WorkStart < ApplicationRecord
+end

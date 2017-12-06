@@ -1,0 +1,2 @@
+class WorkEnd < ApplicationRecord
+end

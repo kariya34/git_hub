@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>出退勤情報</title>
+    <%= csrf_meta_tags %>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <%= form_tag(action: :logout, :controller=>"user_authentication") do %>
+        <%= submit_tag "ログアウト" %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<h1>出退勤記録</h1>
+<hr>
+<% if @message!=nil %>
+<%= @message %>
+<% end %>
+
+<div align="center">
+  <table border="0">
+      <tr>
+        <td colspan="2" >
+          <p>今日は
+          <strong><%= @year %></strong>年
+          <strong><%= @month %></strong>月
+          <strong><%= @day %></strong>日
+          <strong><%= @youbi %></strong>曜日
+          です。
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" >
+          <p><strong><%= @time %></strong></p>
+        </td>
+        <td>
+          <p>現在状況:
+          <% if @isWorkEnd %>
+            <strong>退勤</strong>
+          <% elsif @isWorkStart %>
+            <strong>勤務中</strong>
+          <% else %>
+            <strong>出勤前</strong>
+          <% end %>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" >
+          <table border="0">
+            <tr>
+              <td>
+                <%= form_tag(action: :workStart) do %>
+                  <%= submit_tag "出社", :disabled => @isWorkStart %>
+                <% end %>
+              </td>
+              <td>
+                <%= form_tag(action: :workEnd) do %>
+                  <%= submit_tag "退社", :disabled => @isWorkEnd || !@isWorkStart %>
+                <% end %>
+              </td>
+            </tr>
+          </table>
+        </td>
+        <td>
+          <%= form_tag(action: :showList) do %>
+            <%= submit_tag "勤務表確認" %>
+          <% end %>
+        </td>
+      </tr>
+  </table>
+</div>
+
+<script type="text/javascript">
+  $('strong').css("color","blue");
+  $('strong').css("font-size","+=10");
+  $('strong').css("margin-left","4px");
+  $('strong').css("margin-right","4px");
+</script>

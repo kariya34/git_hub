@@ -1,0 +1,75 @@
+<h1>勤務表</h1>
+<hr>
+<div align="center" >
+<table border="0" >
+  <tr>
+    <td>
+      <%= form_tag(action: :showListPrev) do %>
+        <%= hidden_field_tag :showListDateY, @showListDateY %>
+        <%= hidden_field_tag :showListDateM, @showListDateM %>
+        <%= submit_tag "<" %>
+      <% end %>
+    </td>
+    <td>
+      <h2><%= @showListDateY %>年<%= @showListDateM %>月</h2>
+    </td>
+    <td>
+      <%= form_tag(action: :showListNext) do %>
+        <%= hidden_field_tag :showListDateY, @showListDateY %>
+        <%= hidden_field_tag :showListDateM, @showListDateM %>
+        <%= submit_tag ">" %>
+      <% end %>
+    </td>
+  </tr>
+</table>
+<table class="data" >
+  <tr>
+    <th>出勤日数</th>
+    <td class="header"><%= @workCount %></td>
+  </tr>
+  <tr>
+    <th>合計勤務時間</th>
+    <td class="header"><%= @workTimeTotal %></td>
+  </tr>
+</table>
+<table class="data" >
+  <tr>
+    <th>日付</th>
+    <th>曜日</th>
+    <th>出勤</br>時刻</th>
+    <th>退勤</br>時刻</th>
+    <th>勤務</br>時間</th>
+  </tr>
+  <% for data in @workTimelist do %>
+    <tr align="center" >
+      <th><%= data[:day] %></th>
+      <% if data[:youbi]=="土" || data[:youbi]=="日" then %>
+      <th class="holiday"><%= data[:youbi] %></th>
+      <% else %>
+      <th><%= data[:youbi] %></th>
+      <% end %>
+      <td><%= data[:start] %></td>
+      <td><%= data[:end] %></td>
+      <td><%= data[:time] %></td>
+    </tr>
+  <% end %>
+</table>
+</div>
+
+<script type="text/javascript">
+  $('.holiday').css("color","red");
+  
+  $('.data').css("width","80%");
+  $('.data').css("border-collapse","collapse");
+  $('.data').css("border-top","1px solid #0099cc");
+  $('.data').css("border-left","1px solid #0099cc");
+  $('.data tr:even').css("background-color","lemonchiffon");
+  $('.data th').css("background-color","skyblue");
+  $('.data th,.data td').css("border-right","1px solid #0099cc");
+  $('.data th,.data td').css("border-bottom","1px solid #0099cc");
+  $('.data th,.data td').css("padding","3px");
+  $('th,td').css("text-align","center");
+  $('th,td').css("text-align","center");
+  $('.header').css("background-color","white");
+  
+</script>
