@@ -20,6 +20,11 @@
         <%= submit_tag ">" %>
       <% end %>
     </td>
+    <td>
+      <%= form_tag(action: :index) do %>
+        <%= submit_tag "出退勤記録に戻る" %>
+      <% end %>
+    </td>
   </tr>
 </table>
 <table class="data" >
@@ -36,18 +41,18 @@
   <tr>
     <th>日付</th>
     <th>曜日</th>
-    <th>出勤</br>時刻</th>
-    <th>退勤</br>時刻</th>
-    <th>勤務</br>時間</th>
+    <th>出勤時刻</th>
+    <th>退勤時刻</th>
+    <th>勤務時間</th>
   </tr>
   <% for data in @workTimelist do %>
     <tr align="center" >
       <th><%= data[:day] %></th>
       <% if data[:youbi]=="土" || data[:youbi]=="日" then %>
-      <th class="holiday"><%= data[:youbi] %></th>
+      <th class="holiday">
       <% else %>
-      <th><%= data[:youbi] %></th>
-      <% end %>
+      <th>
+      <% end %><%= data[:youbi] %></th>
       <td><%= data[:start] %></td>
       <td><%= data[:end] %></td>
       <td><%= data[:time] %></td>
@@ -58,7 +63,7 @@
 
 <script type="text/javascript">
   $('.holiday').css("color","red");
-  
+
   $('.data').css("width","80%");
   $('.data').css("border-collapse","collapse");
   $('.data').css("border-top","1px solid #0099cc");
@@ -71,5 +76,5 @@
   $('th,td').css("text-align","center");
   $('th,td').css("text-align","center");
   $('.header').css("background-color","white");
-  
+
 </script>

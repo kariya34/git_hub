@@ -8,20 +8,12 @@
   <table border="0">
     <%= form_tag(action: :login, method: :post) do %>
       <tr>
-        <th>
-          <%= label(:user_id,"Id") %>
-        </th>
-        <td>
-          <%= text_field_tag(:user_id,@user_id) %><br>
-        </td>
+        <th>ID</th>
+        <td><%= text_field_tag(:user_id,@user_id) %></td>
       </tr>
       <tr>
-        <th>
-          <%= label(:password,"パスワード") %>
-        </th>
-        <td>
-          <%= password_field_tag(:password,@password) %><br>
-        </td>
+        <th>パスワード</th>
+        <td><%= password_field_tag(:password,@password) %></td>
       </tr>
       <tr>
         <td colspan="2"  align="center">
@@ -30,10 +22,9 @@
       </tr>
       <tr>
         <td colspan="2"  align="center">
-          <p>※Id,パスワードを忘れた方は管理者へご連絡ください。</p>
+          <p>※ID,パスワードを忘れた方は管理者へご連絡ください。</p>
         </td>
       </tr>
     <% end %>
   </table>
 </div>
-

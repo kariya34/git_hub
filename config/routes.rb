@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post '/login/'                  , to: 'user_authentication#login'
   post '/logout/'                 , to: 'user_authentication#logout'
   post '/timecard/'               , to: 'timecard#index'
+  post '/timecard/index'          , to: 'timecard#index'
   post '/timecard/workStart'      , to: 'timecard#workStart'
   post '/timecard/workEnd'        , to: 'timecard#workEnd'
   post '/timecard/showList'       , to: 'timecard#showList'
