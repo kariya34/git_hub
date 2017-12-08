@@ -4,7 +4,7 @@
 <table border="0" >
   <tr>
     <td>
-      <%= form_tag(action: :showListPrev) do %>
+      <%= form_tag(action: :prev) do %>
         <%= hidden_field_tag :showListDateY, @showListDateY %>
         <%= hidden_field_tag :showListDateM, @showListDateM %>
         <%= submit_tag "<" %>
@@ -14,14 +14,14 @@
       <h2><%= @showListDateY %>年<%= @showListDateM %>月</h2>
     </td>
     <td>
-      <%= form_tag(action: :showListNext) do %>
+      <%= form_tag(action: :next) do %>
         <%= hidden_field_tag :showListDateY, @showListDateY %>
         <%= hidden_field_tag :showListDateM, @showListDateM %>
         <%= submit_tag ">" %>
       <% end %>
     </td>
     <td>
-      <%= form_tag(action: :index) do %>
+      <%= form_tag(controller: :timecard , action: :index) do %>
         <%= submit_tag "出退勤記録に戻る" %>
       <% end %>
     </td>
@@ -75,6 +75,5 @@
   $('.data th,.data td').css("padding","3px");
   $('th,td').css("text-align","center");
   $('th,td').css("text-align","center");
-  $('.header').css("background-color","white");
 
 </script>

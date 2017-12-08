@@ -20,7 +20,7 @@ class UserAuthenticationController < ApplicationController
       else 
         # データが存在しパスワードが同じ場合、出退勤記録ページへ移動
         session[:user_id] = user.id
-        redirect_to controller: 'timecard', action: 'index'
+        redirect_to controller: 'timecard'
         return
         
         # TODO:バリデーション、レイアウトの微調整、追加機能を実装する。
@@ -40,8 +40,8 @@ class UserAuthenticationController < ApplicationController
 
   def index
     if session[:user_id]!=nil then
-      redirect_to controller: 'timecard', action: 'index'
+      redirect_to controller: 'timecard'
     end
   end
-  
+
 end

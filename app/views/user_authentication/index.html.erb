@@ -6,7 +6,7 @@
 
 <div align="center">
   <table border="0">
-    <%= form_tag(action: :login, method: :post) do %>
+    <%= form_tag(action: :login) do %>
       <tr>
         <th>ID</th>
         <td><%= text_field_tag(:user_id,@user_id) %></td>
