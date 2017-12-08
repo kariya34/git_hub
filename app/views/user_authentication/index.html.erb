@@ -1,9 +1,14 @@
 <h1>ログイン</h1>
 <hr>
-<% if @message!=nil %>
-<%= @message %>
+<% if @messages!=nil then %>
+<div style="background-color:#f3e2e2;clear:both;margin:10px;padding:10px;">
+<ul>
+  <% @messages.each do |message| %>
+  <li style="color:#b04f0c;"><%= message %></li>
+  <% end %>
+</ul>
+</div>
 <% end %>
-
 <div align="center">
   <table border="0">
     <%= form_tag(action: :login) do %>
