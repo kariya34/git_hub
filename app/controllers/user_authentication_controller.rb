@@ -17,10 +17,10 @@ class UserAuthenticationController < ApplicationController
     # userテーブルを検索
     user = User.find_by(:user_id => params[:user_id])
     if user==nil then
-      @messages = ['ユーザーは存在しません']
+      @messages = ['指定されたIDのユーザーは存在しません']
 
     elsif user.password != params[:password] then
-      @messages = ['パスワードが異なります']
+      @messages = ['パスワードが間違っています']
 
     else
       # データが存在しパスワードが同じ場合、出退勤記録ページへ移動
